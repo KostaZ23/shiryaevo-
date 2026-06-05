@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сердце Жигулей · Ширяево 6-7 июня</title>
+<meta name="description" content="Программа выходных в Ширяево: Валдай, веломаршрут до Каменной Чаши, жильё, путёвка, погода.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сердце Жигулей · Ширяево, 6-7 июня">
+<meta property="og:description" content="Уикенд на электровелах в Самарской Луке: Каменная Чаша, дикий овраг, Волга и барбекю. Расписание, маршрут, что брать.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- og:image: после хостинга добавь сюда абсолютный URL картинки 1200x630 (горизонтальное фото Жигулей) - тогда в Telegram ссылка развернётся с большой картинкой -->
+<!-- <meta property="og:image" content="https://твой-адрес/cover.jpg"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0a0d;
+    --bg2:#100e14;
+    --panel:#15131b;
+    --panel2:#1b1822;
+    --ink:#ece6d8;
+    --dim:#a59d8b;
+    --faint:#736b5b;
+    --gold:#d8a64a;
+    --gold-br:#f0cd7c;
+    --gold-deep:#9a6f28;
+    --line:rgba(216,166,74,.16);
+    --line-soft:rgba(236,230,216,.08);
+    --warn:#e58f3c;
+    --warn-bg:rgba(229,143,60,.10);
+    --done:#9aa86f;
+    --done-bg:rgba(154,168,111,.10);
+    --shadow:0 24px 60px -28px rgba(0,0,0,.85);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',-apple-system,sans-serif;
+    font-size:16px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    opacity:.5;mix-blend-mode:overlay;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 90px;position:relative;z-index:1}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:40px 0 0;text-align:center}
+  .hero-art{position:relative;min-height:clamp(350px,54vw,470px);border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#070609}
+  .hero-art svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-over{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    padding:0 20px 30px;text-align:center;
+  }
+  .eyebrow{
+    font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-br);
+    font-weight:600;margin-bottom:14px;opacity:0;animation:rise .9s .15s forwards;
+  }
+  .hero h1{
+    font-family:'Cormorant',Georgia,serif;font-weight:700;
+    font-size:clamp(44px,11vw,86px);line-height:.96;letter-spacing:.01em;
+    color:#fff;text-shadow:0 2px 40px rgba(0,0,0,.6);
+    opacity:0;animation:rise .9s .28s forwards;
+  }
+  .hero .sub{
+    margin-top:14px;max-width:540px;font-size:clamp(14px,3.6vw,17px);color:#e9e2d2;
+    text-shadow:0 1px 16px rgba(0,0,0,.7);opacity:0;animation:rise .9s .42s forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .eyebrow,.hero h1,.hero .sub{transform:translateY(14px)}
+
+  /* ---------- NAV PILLS ---------- */
+  nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:26px 0 8px}
+  nav a{
+    font-size:12.5px;letter-spacing:.04em;color:var(--dim);text-decoration:none;
+    border:1px solid var(--line);border-radius:999px;padding:7px 14px;transition:.25s;
+    background:rgba(255,255,255,.012);
+  }
+  nav a:hover{color:var(--gold-br);border-color:var(--gold);background:rgba(216,166,74,.06)}
+
+  /* ---------- SECTION ---------- */
+  section{margin-top:46px;scroll-margin-top:20px}
+  .s-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .s-num{font-family:'Cormorant',serif;font-size:30px;color:var(--gold);font-weight:600;line-height:1}
+  .s-title{font-family:'Cormorant',serif;font-size:clamp(26px,6vw,36px);font-weight:600;letter-spacing:.01em;color:var(--ink)}
+  .s-title small{display:block;font-family:'Manrope',sans-serif;font-size:13px;letter-spacing:.04em;color:var(--faint);font-weight:500;margin-top:3px}
+
+  .card{
+    background:linear-gradient(180deg,var(--panel),var(--bg2));
+    border:1px solid var(--line-soft);border-radius:16px;padding:22px 22px;box-shadow:var(--shadow);
+  }
+  .card + .card{margin-top:14px}
+
+  /* ---------- ROUTE SCHEME ---------- */
+  .route-card{padding:26px 22px 22px;position:relative;overflow:hidden}
+  .route-hills{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px;opacity:.5;z-index:0}
+  .route-inner{position:relative;z-index:1}
+  .route-readout{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;margin-bottom:30px}
+  .route-readout .big{font-family:'Cormorant',serif;font-size:40px;font-weight:700;color:var(--gold-br);line-height:1}
+  .route-readout .big span{font-size:18px;color:var(--dim);font-family:'Manrope';font-weight:500}
+  .route-readout .meta{font-size:13.5px;color:var(--dim)}
+
+  .track{position:relative;height:6px;border-radius:6px;background:rgba(236,230,216,.10);margin:74px 46px 92px}
+  .track-fill{position:absolute;left:0;top:0;height:100%;width:54.2%;border-radius:6px;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-br));
+    box-shadow:0 0 18px rgba(216,166,74,.45);}
+  .track-rest{position:absolute;left:54.2%;right:0;top:50%;height:0;border-top:2px dashed rgba(236,230,216,.22)}
+  .mk{position:absolute;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--gold);z-index:2}
+  .mk.goal{width:19px;height:19px;background:var(--gold-br);border-color:var(--gold-br);box-shadow:0 0 16px rgba(240,205,124,.7)}
+  .mk.dead{border-color:var(--faint);background:var(--bg)}
+  .lbl{position:absolute;width:88px;text-align:center;left:50%;transform:translateX(-50%);line-height:1.2}
+  .lbl .km{font-family:'Cormorant',serif;font-size:19px;font-weight:700;color:var(--gold-br);display:block}
+  .lbl .nm{font-size:11px;letter-spacing:.02em;color:var(--dim);display:block;margin-top:1px}
+  .lbl.below{top:26px}
+  .lbl.above{bottom:26px}
+  .lbl.dead .km{color:var(--faint)}
+  .lbl.dead .nm{color:var(--faint)}
+  .lbl.goal .nm{color:var(--gold)}
+  .tag-no{display:inline-block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);border:1px solid var(--faint);border-radius:4px;padding:1px 5px;margin-top:3px}
+  .flow{display:flex;justify-content:space-between;gap:12px;margin-top:4px}
+  .flow span{font-size:12px;color:var(--dim)}
+  .flow b{color:var(--gold-br);font-weight:600}
+  .route-note{margin-top:20px;font-size:14px;color:var(--dim);border-top:1px solid var(--line-soft);padding-top:16px}
+  .route-note b{color:var(--ink);font-weight:600}
+
+  /* ---------- TIMELINE ---------- */
+  .day{margin-bottom:8px}
+  .day-tag{display:inline-block;font-family:'Cormorant',serif;font-size:23px;font-weight:600;color:var(--ink);margin-bottom:4px}
+  .day-tag em{font-style:normal;font-size:13px;font-family:'Manrope';color:var(--gold);letter-spacing:.06em;margin-left:8px;text-transform:uppercase}
+  .step{display:flex;gap:16px;padding:11px 0;border-bottom:1px solid var(--line-soft)}
+  .step:last-child{border-bottom:0}
+  .step .t{flex:0 0 92px;font-family:'Cormorant',serif;font-size:20px;font-weight:600;color:var(--gold-br);white-space:nowrap}
+  .step .d{flex:1;font-size:14.5px;color:var(--ink)}
+  .step .d b{font-weight:600}
+  .step .d .who{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:1px}
+
+  /* ---------- CHECKLIST ---------- */
+  .ck{border-radius:16px;border:1px solid var(--line-soft);overflow:hidden}
+  .ck-block{padding:18px 20px}
+  .ck-block + .ck-block{border-top:1px solid var(--line-soft)}
+  .ck-block.warn{background:var(--warn-bg);border-left:3px solid var(--warn)}
+  .ck-block.done{background:var(--done-bg);border-left:3px solid var(--done)}
+  .ck-block.neutral{background:var(--panel)}
+  .ck-h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .ck-h .pin{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:5px}
+  .pin.w{background:var(--warn);color:#1a1206}
+  .pin.d{background:var(--done);color:#13160a}
+  .pin.n{background:rgba(236,230,216,.12);color:var(--dim)}
+  .ck-h .ck-sub{font-size:12.5px;color:var(--dim)}
+  ul.checks{list-style:none}
+  ul.checks li{position:relative;padding:7px 0 7px 30px;font-size:14.5px;border-bottom:1px solid rgba(236,230,216,.05)}
+  ul.checks li:last-child{border-bottom:0}
+  ul.checks li::before{position:absolute;left:0;top:7px;font-size:15px;line-height:1.4}
+  .warn ul.checks li::before{content:"○";color:var(--warn);font-weight:700}
+  .done ul.checks li::before{content:"✓";color:var(--done);font-weight:700}
+  .neutral ul.checks li::before{content:"·";color:var(--gold);font-size:22px;top:2px}
+  .mini ul.checks li::before{content:"·";color:var(--gold);font-size:24px;left:8px;top:0}
+  ul.checks li b{font-weight:600}
+  ul.checks li a{color:var(--gold-br);text-decoration:none;border-bottom:1px solid var(--line)}
+  ul.checks li a:hover{border-color:var(--gold-br)}
+
+  /* ---------- INFO GRID ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .mini{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:18px}
+  .mini h4{font-family:'Cormorant',serif;font-size:21px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .mini .role{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:11px}
+  .role.r-done{color:var(--done)}
+  .role.r-warn{color:var(--warn)}
+  .mini p{font-size:14px;color:var(--dim);margin-bottom:5px}
+  .mini p b{color:var(--ink);font-weight:600}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid rgba(236,230,216,.05);font-size:14px}
+  .row:last-child{border-bottom:0}
+  .row .l{color:var(--dim)}
+  .row .v{color:var(--gold-br);font-family:'Cormorant',serif;font-size:18px;font-weight:600;white-space:nowrap}
+  a.lnk{color:var(--gold-br);text-decoration:none;border-bottom:1px solid var(--line);font-size:13.5px}
+  a.lnk:hover{border-color:var(--gold-br)}
+  .phone{color:var(--gold-br);font-weight:600;text-decoration:none}
+  .phone:hover{text-decoration:underline}
+
+  .note{font-size:13.5px;color:var(--dim);line-height:1.6}
+  .note b{color:var(--ink);font-weight:600}
+  .note .hl{color:var(--gold-br);font-weight:600}
+
+  .weather-strip{display:flex;gap:14px;margin-bottom:16px}
+  @media(max-width:520px){.weather-strip{flex-direction:column}}
+  .wx{flex:1;background:var(--panel2);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px}
+  .wx .d{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .wx .temp{font-family:'Cormorant',serif;font-size:34px;font-weight:700;color:var(--ink);line-height:1.1}
+  .wx .rain{font-size:13px;color:var(--warn);font-weight:600}
+
+  footer{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);text-align:center}
+  .flinks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
+  .flinks a{font-size:13px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:9px 16px;transition:.25s}
+  .flinks a:hover{border-color:var(--gold);color:var(--gold-br);background:rgba(216,166,74,.06)}
+  footer .sig{font-size:12px;color:var(--faint);letter-spacing:.04em}
+  footer .sig span{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-art">
+      <svg viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1a1530"/>
+            <stop offset="42%" stop-color="#3a2a3e"/>
+            <stop offset="72%" stop-color="#7a4e36"/>
+            <stop offset="100%" stop-color="#c98a44"/>
+          </linearGradient>
+          <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#ffe7b0"/>
+            <stop offset="40%" stop-color="#f4c061" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#f4c061" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3550"/><stop offset="1" stop-color="#2b1f33"/></linearGradient>
+          <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#322340"/><stop offset="1" stop-color="#1c1526"/></linearGradient>
+          <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1526"/><stop offset="1" stop-color="#0d0a12"/></linearGradient>
+          <linearGradient id="riv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#caa05a" stop-opacity=".55"/><stop offset="1" stop-color="#0b0a0d"/></linearGradient>
+        </defs>
+        <rect width="1000" height="480" fill="url(#sky)"/>
+        <circle cx="640" cy="210" r="150" fill="url(#sun)"/>
+        <circle cx="640" cy="210" r="40" fill="#ffeec2" opacity=".9"/>
+        <!-- far ridge -->
+        <path d="M0 250 L120 215 L230 245 L360 200 L470 238 L600 195 L730 235 L860 205 L1000 240 L1000 480 L0 480 Z" fill="url(#r2)" opacity=".85"/>
+        <!-- mid ridge -->
+        <path d="M0 300 L140 262 L260 300 L400 250 L520 295 L660 248 L800 292 L920 258 L1000 288 L1000 480 L0 480 Z" fill="url(#r1)"/>
+        <!-- river -->
+        <path d="M0 360 Q250 345 520 372 Q760 396 1000 372 L1000 410 Q760 432 520 408 Q250 382 0 396 Z" fill="url(#riv)"/>
+        <!-- near ridge -->
+        <path d="M0 372 L120 332 L210 372 L300 330 L360 360 L420 326 L520 372 L620 336 L700 372 L820 332 L920 372 L1000 348 L1000 480 L0 480 Z" fill="url(#r3)"/>
+        <!-- trail -->
+        <path d="M470 480 Q500 410 470 372 Q440 338 480 326 Q520 314 505 286" fill="none" stroke="#e7b65c" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 9" opacity=".8"/>
+        <!-- birds -->
+        <path d="M150 150 q10 -8 20 0 q10 -8 20 0" fill="none" stroke="#e9e2d2" stroke-width="1.6" opacity=".5"/>
+        <path d="M210 175 q7 -6 14 0 q7 -6 14 0" fill="none" stroke="#e9e2d2" stroke-width="1.4" opacity=".4"/>
+      </svg>
+      <div class="hero-over">
+        <div class="eyebrow">Самарская Лука · 6-7 июня 2026</div>
+        <h1>Сердце&nbsp;Жигулей</h1>
+        <p class="sub">Ширяево, Каменная Чаша и дикий овраг на электровелах. Источник, гроты, Волга и барбекю на закате.</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#route">Маршрут</a>
+      <a href="#plan">Программа</a>
+      <a href="#book">Забронировать</a>
+      <a href="#take">Взять и купить</a>
+      <a href="#transport">Транспорт</a>
+      <a href="#stay">Жильё</a>
+      <a href="#bikes">Велосипеды</a>
+      <a href="#permit">Путёвка</a>
+      <a href="#weather">Погода</a>
+    </nav>
+  </header>
+
+  <!-- ROUTE -->
+  <section id="route">
+    <div class="s-head"><div class="s-num">01</div><div class="s-title">Маршрут субботы<small>чтобы сразу видеть масштаб</small></div></div>
+    <div class="card route-card">
+      <svg class="route-hills" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 120 L90 70 L180 110 L300 55 L400 100 L520 50 L640 98 L760 58 L880 100 L1000 66 L1000 120 Z" fill="#1c1526"/>
+        <path d="M0 120 L120 92 L240 118 L360 86 L480 116 L600 84 L720 116 L840 90 L1000 110 L1000 120 Z" fill="#120d1a"/>
+      </svg>
+      <div class="route-inner">
+        <div class="route-readout">
+          <div class="big">~26 км <span>туда-обратно</span></div>
+          <div class="meta">~3 часа с купанием и фото · накатанная грунтовка по дну оврага</div>
+        </div>
+
+        <div class="track">
+          <div class="track-fill"></div>
+          <div class="track-rest"></div>
+
+          <div class="mk" style="left:0%"></div>
+          <div class="lbl below" style="left:0%"><span class="km">0</span><span class="nm">Ширяево · старт</span></div>
+
+          <div class="mk" style="left:41.7%"></div>
+          <div class="lbl below" style="left:41.7%"><span class="km">10 км</span><span class="nm">Каменная Чаша · источник</span></div>
+
+          <div class="mk goal" style="left:54.2%"></div>
+          <div class="lbl above goal" style="left:54.2%"><span class="km">13 км</span><span class="nm">разворот · гроты</span></div>
+
+          <div class="mk dead" style="left:100%"></div>
+          <div class="lbl below dead" style="left:100%"><span class="km">24 км</span><span class="nm">Чурокайка</span><span class="tag-no">не едем</span></div>
+        </div>
+
+        <div class="flow">
+          <span>туда: <b>пологий подъём</b> (ест заряд)</span>
+          <span>обратно: <b>под горку</b> (экономия)</span>
+        </div>
+
+        <p class="route-note">Ширяево → Каменная Чаша (10 км) → ещё 2-3 км в самую узкую часть оврага с гротами в скалах → <b>разворот</b>. До Кордона Чурокайка (24 км в одну сторону, ~48 туда-обратно) <b>не едем</b> - на электровелах с запасом хода 35-45 км туда не дотянуть. Разворот делаем при ~50% батареи.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="s-head"><div class="s-num">02</div><div class="s-title">Программа</div></div>
+
+    <div class="card">
+      <div class="day">
+        <div class="day-tag">Суббота <em>6 июня</em></div>
+        <div class="step"><div class="t">09:00</div><div class="d"><span class="who">Ты + брат</span>Валдай с Речного вокзала → <b>09:45</b> Ширяево. Заселение в Bear's House, завтрак.</div></div>
+        <div class="step"><div class="t">12:00</div><div class="d"><span class="who">Друзья</span>Валдай с Поляны им. Фрунзе → <b>12:30</b> Ширяево (переправа 30 мин).</div></div>
+        <div class="step"><div class="t">~13:00</div><div class="d"><span class="who">Все вместе</span>Велосипеды + путёвки, выезд: Ширяево → Каменная Чаша → узкая часть оврага → назад. <b>~26 км.</b></div></div>
+        <div class="step"><div class="t">Вечер</div><div class="d">Барбекю в отеле.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="day">
+        <div class="day-tag">Воскресенье <em>7 июня · спокойно</em></div>
+        <div class="step"><div class="t">Утро</div><div class="d">Гора Попова (смотровая, панорама Волги и Жигулёвских ворот) + Ширяевские штольни. Всё рядом с селом, минимум км и заряда.</div></div>
+        <div class="step"><div class="t">День</div><div class="d">По желанию SUP по Волге. Обед, сборы.</div></div>
+        <div class="step"><div class="t">19:00</div><div class="d">Валдай Ширяево → Речной вокзал, домой. <span style="color:var(--faint);font-size:12px">(у нас с братом уже взято)</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section id="book">
+    <div class="s-head"><div class="s-num">03</div><div class="s-title">Забронировать заранее<small>главное · сделать до выезда</small></div></div>
+    <div class="ck">
+      <div class="ck-block warn">
+        <div class="ck-h"><span class="pin w">Друзьям · срочно</span><span class="ck-sub">ещё ничего не брали, мест на Валдай мало</span></div>
+        <ul class="checks">
+          <li><b>Валдай туда:</b> Поляна им. Фрунзе → Ширяево, сб 12:00 или 14:00, 800 руб. <a href="https://volga-travel.com/route/4/view" target="_blank" rel="noopener">купить билет</a></li>
+          <li><b>Валдай обратно:</b> Ширяево → Речной, вс 19:00 (или 15:00), 800 руб. Мест мало - брать сразу. <a href="https://volga-travel.com/route/7/view" target="_blank" rel="noopener">купить билет</a></li>
+          <li><b>Электровелосипеды:</b> тот же прокат, что у нас (EcoПрокат), бронь заранее обязательна. Просить Kugoo Kirin V3 (запас хода 45 км).</li>
+          <li><b>Жильё:</b> Bear's House распродан. Соседи - <b>Марина</b> <a href="tel:+79171111508" class="phone">8 917 111-15-08</a>, либо варианты ниже в разделе «Жильё».</li>
+        </ul>
+      </div>
+      <div class="ck-block done">
+        <div class="ck-h"><span class="pin d">У нас с братом</span><span class="ck-sub">готово</span></div>
+        <ul class="checks">
+          <li>Валдай туда (сб 09:00, Речной) и обратно (вс 19:00).</li>
+          <li>Жильё: Bear's House, Самарская ул. 38.</li>
+          <li>2 электровелосипеда в EcoПрокат.</li>
+        </ul>
+      </div>
+      <div class="ck-block neutral">
+        <div class="ck-h"><span class="pin n">Всем · на месте</span></div>
+        <ul class="checks">
+          <li><b>Путёвка в нацпарк</b> - в информационном центре на въезде в Ширяево, 200 руб/чел. Без неё по оврагу штрафуют.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKE -->
+  <section id="take">
+    <div class="s-head"><div class="s-num">04</div><div class="s-title">Взять и купить</div></div>
+    <div class="grid">
+      <div class="mini">
+        <h4>Купить в Самаре до катера</h4>
+        <p class="role r-warn">в Ширяево дороже и выбор хуже</p>
+        <ul class="checks" style="margin-top:4px">
+          <li style="border:0;padding-left:30px">Мясо и маринад для барбекю</li>
+          <li style="border:0;padding-left:30px">Уголь и розжиг</li>
+          <li style="border:0;padding-left:30px">Вода с запасом (на источнике очередь)</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>Взять с собой</h4>
+        <p class="role" style="color:var(--faint)">мелочи, без которых неудобно</p>
+        <ul class="checks" style="margin-top:4px">
+          <li style="border:0;padding-left:30px">Наличные (путёвка, залог за велы, уголь - часто только кэш)</li>
+          <li style="border:0;padding-left:30px">Дождевик/ветровка - дождь 50-55%</li>
+          <li style="border:0;padding-left:30px">Повербанк, головной убор, замок для велосипеда</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPORT -->
+  <section id="transport">
+    <div class="s-head"><div class="s-num">05</div><div class="s-title">Транспорт<small>Валдай-45 · 800 руб · 45 мин с Речного, 30 мин с Поляны</small></div></div>
+    <div class="grid">
+      <div class="mini">
+        <h4>Ты + брат</h4>
+        <p class="role r-done">забронировано</p>
+        <div class="row"><span class="l">Сб · туда (Речной)</span><span class="v">09:00</span></div>
+        <div class="row"><span class="l">Вс · обратно (Речной)</span><span class="v">19:00</span></div>
+      </div>
+      <div class="mini">
+        <h4>Друзья</h4>
+        <p class="role r-warn">нужно взять туда и обратно</p>
+        <div class="row"><span class="l">Сб · туда (Поляна Фрунзе)</span><span class="v">12:00 / 14:00</span></div>
+        <div class="row"><span class="l">Вс · обратно (Ширяево)</span><span class="v">19:00 / 15:00</span></div>
+        <p style="margin-top:10px"><a class="lnk" href="https://volga-travel.com" target="_blank" rel="noopener">volga-travel.com - билеты онлайн</a></p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <p class="note"><b>Запасной вариант заброски:</b> на машине Самара → Жигулёвск → Ширяево, ~140 км, 2.5-3 часа. Имеет смысл только если на Валдай совсем не осталось мест.</p>
+    </div>
+  </section>
+
+  <!-- STAY -->
+  <section id="stay">
+    <div class="s-head"><div class="s-num">06</div><div class="s-title">Жильё<small>всё в селе Ширяево</small></div></div>
+    <div class="card" style="margin-bottom:14px">
+      <h4 style="font-family:'Cormorant',serif;font-size:23px;font-weight:600">Bear's House <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--done);font-family:'Manrope';font-weight:700;margin-left:8px">наше · забронировано</span></h4>
+      <p class="note" style="margin-top:4px">Самарская ул. 38. <a class="lnk" href="https://yandex.ru/maps/-/CPX1UF4Q" target="_blank" rel="noopener">открыть на карте</a></p>
+    </div>
+    <p class="note" style="margin-bottom:12px"><span class="hl">Друзьям</span> (Bear's House распродан) - варианты по соседству:</p>
+    <div class="grid">
+      <div class="mini">
+        <h4>Марина</h4>
+        <p class="role r-warn">соседи Bear's House</p>
+        <p><b>Рядом с нашим отелем.</b></p>
+        <p><a class="phone" href="tel:+79171111508">8 917 111-15-08</a></p>
+      </div>
+      <div class="mini">
+        <h4>Mini-Otel'</h4>
+        <p class="role" style="color:var(--gold)">рейтинг 5.0 · есть мангал</p>
+        <p>Библиотечная ул. 9</p>
+        <p><a class="phone" href="tel:+79053061909">+7 905 306-19-09</a> · <a class="lnk" href="https://maps.google.com/?cid=509619460759750829" target="_blank" rel="noopener">карта</a></p>
+      </div>
+      <div class="mini">
+        <h4>Апарт-отель Repino</h4>
+        <p class="role" style="color:var(--gold)">рейтинг 4.7 · зона барбекю</p>
+        <p>Советская ул. 3</p>
+        <p><a class="phone" href="tel:+79277345345">+7 927 734-53-45</a> · <a class="lnk" href="https://maps.google.com/?cid=10122117852831341887" target="_blank" rel="noopener">карта</a></p>
+      </div>
+      <div class="mini">
+        <h4>Leninskaya15</h4>
+        <p class="role" style="color:var(--gold)">рейтинг 5.0 · своя смотровая</p>
+        <p>Ленинская ул. 15</p>
+        <p><a class="phone" href="tel:+79272116098">+7 927 211-60-98</a> · <a class="lnk" href="https://maps.google.com/?cid=16758001081596668767" target="_blank" rel="noopener">карта</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIKES -->
+  <section id="bikes">
+    <div class="s-head"><div class="s-num">07</div><div class="s-title">Велосипеды<small>EcoПрокат · электро</small></div></div>
+    <div class="card">
+      <p class="note" style="margin-bottom:14px"><b>Берём Kugoo Kirin V3</b> (запас хода 45 км) - на наш круг ~26 км хватает с запасом. У V1 Pro только 35 км, на подъёме в овраг будет впритык. Туда в овраг - пологий подъём (ест заряд), обратно под горку. <span class="hl">Разворот при ~50% батареи.</span> После дождя грязь сажает батарею сильнее, мойка грязного вела у проката 300 руб.</p>
+      <div class="grid">
+        <div class="mini" style="background:var(--panel2)">
+          <h4>Kirin V3 <span style="font-size:11px;color:var(--gold);font-family:'Manrope';font-weight:700;letter-spacing:.06em">рекомендуем · 45 км</span></h4>
+          <div class="row"><span class="l">Час</span><span class="v">700 ₽</span></div>
+          <div class="row"><span class="l">День</span><span class="v">1900 ₽</span></div>
+          <div class="row"><span class="l">Сутки</span><span class="v">2400 ₽</span></div>
+        </div>
+        <div class="mini" style="background:var(--panel2)">
+          <h4>V1 Pro <span style="font-size:11px;color:var(--faint);font-family:'Manrope';font-weight:700;letter-spacing:.06em">35 км · впритык</span></h4>
+          <div class="row"><span class="l">День</span><span class="v">1600 ₽</span></div>
+          <div class="row"><span class="l">Сутки</span><span class="v">2000 ₽</span></div>
+          <div class="row"><span class="l">SUP-доска</span><span class="v">600 ₽/ч</span></div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:12px;font-size:12.5px;color:var(--faint)">Ранний выезд до 10:00 - +500 руб. Цены ориентировочные, уточняйте при брони.</p>
+    </div>
+  </section>
+
+  <!-- PERMIT -->
+  <section id="permit">
+    <div class="s-head"><div class="s-num">08</div><div class="s-title">Путёвка в нацпарк</div></div>
+    <div class="card">
+      <div class="row" style="border-bottom:1px solid var(--line-soft);padding-bottom:12px;margin-bottom:12px">
+        <span class="l" style="font-size:15px;color:var(--ink)">Входная плата, действует 3 дня</span>
+        <span class="v" style="font-size:24px">200 ₽/чел</span>
+      </div>
+      <p class="note">Покупать в <b>информационном центре нацпарка на въезде в Ширяево</b>, летом работает с 8:00 до 20:00. На месте уточните, что <span class="hl">электровелосипед проходит как велосипед</span> (без доплаты как за мототранспорт). Без путёвки по оврагу ездят инспекторы и штрафуют - не экономьте.</p>
+    </div>
+  </section>
+
+  <!-- WEATHER -->
+  <section id="weather">
+    <div class="s-head"><div class="s-num">09</div><div class="s-title">Погода<small>прогноз на выходные</small></div></div>
+    <div class="weather-strip">
+      <div class="wx">
+        <div class="d">Сб · 6 июня</div>
+        <div class="temp">~20°</div>
+        <div class="rain">дождь 55%</div>
+      </div>
+      <div class="wx">
+        <div class="d">Вс · 7 июня</div>
+        <div class="temp">~21°</div>
+        <div class="rain">дождь 50%</div>
+      </div>
+    </div>
+    <div class="card">
+      <p class="note"><b>Главный риск - грязь.</b> Дно Ширяевского оврага черноземное, после дождя долго не сохнет и сажает батарею. Утром смотрите почасовой прогноз и катайте Каменную Чашу в самое сухое окно. <span class="hl">Если суббота мокрая, а воскресенье суше - меняйте местами:</span> Чашу в воскресенье, а спокойные дела по селу (Попова, штольни - щебень и асфальт, дождя не боятся) в субботу.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flinks">
+      <a href="https://volga-travel.com" target="_blank" rel="noopener">Билеты на Валдай</a>
+      <a href="https://yandex.ru/maps/-/CPX1UF4Q" target="_blank" rel="noopener">Bear's House на карте</a>
+      <a href="https://yandex.ru/maps/?ll=49.9224%2C53.4087&z=14&pt=49.9224%2C53.4087" target="_blank" rel="noopener">Каменная Чаша на карте</a>
+    </div>
+    <p class="sig">Ширяево · Самарская Лука · <span>6-7 июня 2026</span></p>
+  </footer>
+
+</div>
+</body>
+</html>
